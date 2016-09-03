@@ -20,6 +20,6 @@
         ],
         "matches": ["*://*/*.md", "*://*/*.md#*"]
     }],
-    "permissions": ["storage", "tabs", "pageCapture", "downloads"],
+    "permissions": ["storage", "tabs", "pageCapture", "downloads", "http://*/"],
     "web_accessible_resources": ["bao/*"]
 }

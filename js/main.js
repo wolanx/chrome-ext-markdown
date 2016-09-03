@@ -7,17 +7,27 @@ var _title = decodeURI(_url.substring(_url.lastIndexOf('/') + 1));
 var _content = document.body.innerText;
 var _path = chrome.extension.getURL('bao/');
 
-_storage.get(['disable_markdown', 'md_model'], function(items) {
-    if (items.disable_markdown) {
-        return;
-    }
+if (_title == 'pwd.jpg') {
+    $.get(document.location.href, function(res) {
+        _content = res;
+        load();
+    });
+} else {
+    load();
+}
 
-    var _md_model = items.md_model ? items.md_model : 'show';
+function load() {
+    _storage.get(['disable_markdown', 'md_model'], function(items) {
+        if (items.disable_markdown) {
+            return;
+        }
 
-    if (_md_model != 'edit') {
+        var _md_model = items.md_model ? items.md_model : 'show';
 
-        document.body.setAttribute('path', _path);
-        document.body.innerHTML = `
+        if (_md_model != 'edit') {
+
+            document.body.setAttribute('path', _path);
+            document.body.innerHTML = `
 <title>${_title} - ZhaoYuJie</title>
 <link rel="stylesheet" href="${_path}css/style.css">
 <link rel="stylesheet" href="${_path}css/editormd.preview.css">
@@ -32,13 +42,13 @@ _storage.get(['disable_markdown', 'md_model'], function(items) {
        <textarea style="display:none;" name="test-editormd-markdown-doc">${_content}</textarea>               
     </div>
 </div>`
-        var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
-        $(document.head).append(js);
-        var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/show.js');
-        $(document.head).append(js);
-    } else {
-        document.body.setAttribute('path', _path);
-        document.body.innerHTML = `
+            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
+            $(document.head).append(js);
+            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/show.js');
+            $(document.head).append(js);
+        } else {
+            document.body.setAttribute('path', _path);
+            document.body.innerHTML = `
 <title>${_title} - ZhaoYuJie</title>
 <link rel="stylesheet" href="${_path}css/style.css">
 <link rel="stylesheet" href="${_path}css/editormd.min.css">
@@ -48,9 +58,10 @@ _storage.get(['disable_markdown', 'md_model'], function(items) {
         <textarea style="display:none;">${_content}</textarea>
     </div>
 </div>`
-        var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
-        $(document.head).append(js);
-        var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/edit.js');
-        $(document.head).append(js);
-    }
-});
+            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
+            $(document.head).append(js);
+            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/edit.js');
+            $(document.head).append(js);
+        }
+    });
+}
