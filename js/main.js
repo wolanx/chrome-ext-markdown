@@ -22,6 +22,9 @@ function load() {
             return;
         }
 
+        var js = $('<link>').attr('rel', 'icon').attr('href', _path + 'favicon.ico');
+        $(document.head).append(js);
+
         var _md_model = items.md_model ? items.md_model : 'show';
 
         if (_md_model != 'edit') {
@@ -42,9 +45,9 @@ function load() {
        <textarea style="display:none;" name="test-editormd-markdown-doc">${_content}</textarea>               
     </div>
 </div>`
-            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
+            var js = $('<script>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
             $(document.head).append(js);
-            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/show.js');
+            var js = $('<script>').attr('type', 'text/javascript').attr('src', _path + 'js/show.js');
             $(document.head).append(js);
         } else {
             document.body.setAttribute('path', _path);
@@ -58,9 +61,9 @@ function load() {
         <textarea style="display:none;">${_content}</textarea>
     </div>
 </div>`
-            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
+            var js = $('<script>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
             $(document.head).append(js);
-            var js = $('<script/>').attr('type', 'text/javascript').attr('src', _path + 'js/edit.js');
+            var js = $('<script>').attr('type', 'text/javascript').attr('src', _path + 'js/edit.js');
             $(document.head).append(js);
         }
     });

@@ -15,16 +15,14 @@ var deps = [
 	"editormd",
 	PATH + "lib/marked.min",
 	PATH + "lib/prettify.min",
-    PATH + "lib/underscore.min",
-    PATH + "lib/flowchart.min",
-    PATH + "lib/jquery.flowchart.min",
+	PATH + "lib/underscore.min",
 ];
 
 seajs.use(deps, function($, editormd) {
 	editormd.markdownToHTML('test-editormd-view', {
 		htmlDecode: "style,script,iframe", // you can filter tags decode
 		taskList: true,
-        path: PATH + 'lib/',
+		path: PATH + 'lib/',
 		tocm: true, // Using [TOCM]
 		tocContainer: "#custom-toc-container", // 自定义 ToC 容器层
 	});
