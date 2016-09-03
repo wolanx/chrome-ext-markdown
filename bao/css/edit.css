@@ -1,0 +1,8 @@
+header p code {
+    padding: 3px;
+    border: 1px solid #ddd;
+    background: #f6f6f6;
+    border-radius: 3px;
+    font-size: 85%;
+    font-family: Consolas, 'Monaco', courier, monospace;
+}

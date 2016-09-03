@@ -1,0 +1,25 @@
+{
+    "version": "1.1.1",
+    "manifest_version": 2,
+    "name": "Markdown ZhaoYuJie",
+    "description": "Converts and previews markdown files .md to HTML right inside Chrome.",
+    "icons": {
+        "128": "images/icon.png",
+        "16": "images/icon.png",
+        "48": "images/icon.png"
+    },
+    "browser_action": {
+        "default_icon": "images/icon.png",
+        "default_popup": "popup.html",
+        "default_title": "Markdown ZhaoYuJie"
+    },
+    "content_scripts": [{
+        "js": [
+            "bao/js/jquery.min.js",
+            "js/main.js"
+        ],
+        "matches": ["*://*/*.md", "*://*/*.md#*"]
+    }],
+    "permissions": ["storage", "tabs", "pageCapture", "downloads"],
+    "web_accessible_resources": ["bao/*"]
+}
