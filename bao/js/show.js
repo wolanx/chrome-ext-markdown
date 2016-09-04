@@ -26,4 +26,9 @@ seajs.use(deps, function($, editormd) {
 		tocm: true, // Using [TOCM]
 		tocContainer: "#custom-toc-container", // 自定义 ToC 容器层
 	});
+	setTimeout(function() {
+		if (location.hash) {
+			location.href = location.hash
+		}
+	}, 100);
 });
