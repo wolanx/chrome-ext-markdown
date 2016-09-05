@@ -10,3 +10,4 @@
 #custom-toc-container{padding-left:0;}
 #test-editormd-view{margin:0;padding-right:0;}
 #layout > h1{margin: 0 20px;}
+#layout * {font-family: monospace, 'Microsoft Yahei';}
