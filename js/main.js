@@ -48,7 +48,9 @@ function load() {
             var js = $('<script>').attr('type', 'text/javascript').attr('src', _path + 'js/sea.js');
             $(document.head).append(js);
             var js = $('<script>').attr('type', 'text/javascript').attr('src', _path + 'js/show.js');
-            $(document.head).append(js);
+            setTimeout(() => {
+                $(document.head).append(js);
+            }, 0);
         } else {
             document.body.setAttribute('path', _path);
             document.body.innerHTML = `
