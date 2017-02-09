@@ -54,7 +54,12 @@ function load() {
                     "bao/editormd.js",
                     "bao/lib/marked.min.js",
 
+                    "bao/lib/underscore.min.js",
                     "bao/lib/prettify.min.js",
+                    "bao/lib/raphael.min.js",
+                    "bao/lib/sequence-diagram.min.js",
+                    "bao/lib/flowchart.min.js",
+                    "bao/lib/jquery.flowchart.min.js",
                     '/bao/js/show.js',
                 ]
             });
