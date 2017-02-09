@@ -14,12 +14,25 @@
         "default_title": "Markdown ZhaoYuJie"
     },
     "content_scripts": [{
+        "matches": ["*://*/*.md", "*://*/*.md#*"],
+        "run_at": "document_end",
         "js": [
             "bao/js/jquery.min.js",
             "js/main.js"
-        ],
-        "matches": ["*://*/*.md", "*://*/*.md#*"]
+        ]
     }],
-    "permissions": ["storage", "tabs", "pageCapture", "downloads", "http://*/"],
+    "background": {
+        "page": "background.html",
+        "persistent": false
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "pageCapture",
+        "downloads",
+        "background",
+        "*://*/*.md", "*://*/*.md#*"
+    ],
     "web_accessible_resources": ["bao/*"]
 }
